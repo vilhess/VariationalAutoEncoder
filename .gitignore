@@ -3,3 +3,4 @@ models/
 *.ipynb
 __pycache__/
 /.DS_Store
+presentation/

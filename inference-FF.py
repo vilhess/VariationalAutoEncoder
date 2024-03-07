@@ -16,10 +16,12 @@ imgs = dataset[idxs].flatten(start_dim=1)
 with torch.no_grad():
     reconstructed = model(imgs.to(DEVICE))[0]
 
-fig = plt.figure(figsize=(9, 4))
+fig = plt.figure(figsize=(6, 2))
 for idx, (img, img_rec) in enumerate(zip(imgs, reconstructed)):
     ax = fig.add_subplot(2, 10, idx+1)
     bx = fig.add_subplot(2, 10, idx+11)
     ax.imshow(img.cpu().reshape(28, 20, 1), cmap="gray")
     bx.imshow(img_rec.cpu().reshape(28, 20, 1), cmap='gray')
+    ax.axis('off')
+    bx.axis('off')
 plt.show()
