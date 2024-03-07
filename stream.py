@@ -33,6 +33,8 @@ def plot(model):
         bx = fig.add_subplot(2, 5, idx+6)
         ax.imshow(img.cpu().permute(1, 2, 0), cmap="gray")
         bx.imshow(img_rec.cpu().permute(1, 2, 0), cmap='gray')
+        ax.axis('off')
+        bx.axis('off')
     st.pyplot(fig)
 
 if 'loaded' not in st.session_state :
