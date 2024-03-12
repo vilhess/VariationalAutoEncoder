@@ -39,9 +39,9 @@ def plot(model):
 
 if 'loaded' not in st.session_state :
 
-    st.session_state['mnist'] = torch.load('models/mnist-2d.pkl').to(DEVICE)
+    st.session_state['mnist'] = torch.load('models/mnist-2dv2.pkl').to(DEVICE)
     st.session_state['ff'] = torch.load('models/ff-8d.pkl').to(DEVICE)
-    checkpoints = torch.load('models/checkpoint-8.pth')
+    checkpoints = torch.load('models/checkpoint-17.pth', map_location='cpu')
     parameters = checkpoints['model_state_dict']
     model_celeba = VAE_CelebA()
     model_celeba.load_state_dict(parameters)

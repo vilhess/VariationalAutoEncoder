@@ -1,14 +1,16 @@
 import torch
 import torch.nn as nn
 import matplotlib.pyplot as plt
+from torcheval import metrics
 
 from model_celeba import VAE_CelebA
 from dataset import CelebA
 
+
 dataset = CelebA('data/CELEBA/images/img_align_celeba')
 DEVICE='cpu'
 
-checkpoints = torch.load('models/checkpoint-8.pth')
+checkpoints = torch.load('models/checkpoint-17.pth', map_location=torch.device('cpu'))
 parameters = checkpoints['model_state_dict']
 
 model = VAE_CelebA()
@@ -19,7 +21,6 @@ imgs = []
 for idx in idxs:
     imgs.append(dataset[idx])
 imgs = torch.stack(imgs)
-print(imgs.shape)
 
 with torch.no_grad():
     reconstructed = model(imgs.to(DEVICE))[0]
