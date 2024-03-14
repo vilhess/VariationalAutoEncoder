@@ -1,7 +1,6 @@
 import torch
 import torch.nn as nn
 import matplotlib.pyplot as plt
-from torcheval import metrics
 
 from model_celeba import VAE_CelebA
 from dataset import CelebA
@@ -10,7 +9,7 @@ from dataset import CelebA
 dataset = CelebA('data/CELEBA/images/img_align_celeba')
 DEVICE='cpu'
 
-checkpoints = torch.load('models/checkpoint-17.pth', map_location=torch.device('cpu'))
+checkpoints = torch.load('models/checkpoint-24}.pth', map_location=torch.device('cpu'))
 parameters = checkpoints['model_state_dict']
 
 model = VAE_CelebA()
