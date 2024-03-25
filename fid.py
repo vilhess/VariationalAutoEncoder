@@ -24,11 +24,11 @@ print('dataset loaded')
 
 scores = []
 
-checkpoints = [torch.load(f'checkpoints/checkpoint-{epoch}.pth', map_location=torch.device(DEVICE)) for epoch in range(25)]
+checkpoints = [torch.load(f'models/checkpoint-{epoch}.pth', map_location=torch.device(DEVICE)) for epoch in range(30)]
 parameters = [checkpoint['model_state_dict'] for checkpoint in checkpoints]
 
 
-for epoch in range(25):
+for epoch in range(30):
 
     model.load_state_dict(parameters[epoch])
 
